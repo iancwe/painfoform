@@ -1,5 +1,9 @@
 $(document).ready(function () {
+  //global variables
+  var details=[]
+
   console.log('jQuery up and running')
+
   // prefill in form with url anchor
   var hashParams = window.location.hash.substr(1).split('&')
   for (var i = 0; i < hashParams.length; i++) {
@@ -13,17 +17,15 @@ $(document).ready(function () {
     }
   }
   // Sending API call to myinfo to test tutorial 1
-  axios({
-    method: 'get',
+  $.ajax({
+    type: 'GET',
     url: 'https://myinfo.api.gov.sg/dev/L0/v1/person/S9203266C/',
-    responseType: 'json',
-    crossDomain: true
-  })
-  .then((response) => {
-    console.log(response)
-    return response
-  })
-  .catch((error) => {
-    console.log(error)
+    datatype: 'json',
+    success: function (details) {
+      console.log('Success', details)
+    },
+    error: function (error) {
+      console.log('ERROR', error)
+    }
   })
 })
