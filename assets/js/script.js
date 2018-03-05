@@ -23,6 +23,24 @@ $(document).ready(function () {
     datatype: 'json',
     success: function (details) {
       console.log('Success', details)
+      var nationality = details.nationality.value
+      document.getElementById('entry_845436144').value = nationality
+      var marital = details.marital.value
+      document.getElementById('entry_1666814391').value = marital
+      var dob = details.dob.value
+      document.getElementById('entry_1628080810').value = dob
+      var nric = 'S9203266C'
+      document.getElementById('entry_1172287282').value = nric
+      var gender = details.sex.value
+      // figuring out how to prefill radio buttons
+      var address1 = details.regadd.block + ' ' + details.regadd.street
+      document.getElementById('entry_303748046').value = address1
+      var address2 = '#' + details.regadd.floor + '-' + details.regadd.unit
+      document.getElementById('entry_1490315281').value = address2
+      var postal = details.regadd.postal
+      document.getElementById('entry_1781395245').value = postal
+      var income = details.assessableincome.value
+      document.getElementById('entry_1306415138').value = income
     },
     error: function (error) {
       console.log('ERROR', error)
